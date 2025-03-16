@@ -1,29 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/css/boxicons.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <div class="mobile-frame">
-        <div class="container">
-            <div class="search-container">
-                <input type="text" id="search-input" placeholder="Enter location...">
-                <button id="search-btn"><i class='bx bx-search'></i></button>
-            </div>
-            <div id="weather-info">
-                <div id="current-weather"></div>
-                <div id="forecast"></div>
-            </div>
-            <div id="map"></div>
+  <div class="app-wrap">
+    <header>
+      <input type="text" autocomplete="off" class="search-box" placeholder="Search for a city..." />
+      <button id="location-btn"><i class="fas fa-location-crosshairs"></i></button>
+      <button id="unit-toggle">°C/°F</button>
+    </header>
+    <main>
+      <section class="location">
+        <div class="city"></div>
+        <div class="date"></div>
+      </section>
+      <div class="current">
+        <div class="temp"><span>°c</span></div>
+        <div class="weather"></div>
+        <div class="hi-low"></div>
+      </div>
+      <div class="weather-details">
+        <div class="detail-box">
+          <i class="fas fa-tint"></i>
+          <span>Humidity</span>
+          <span id="humidity"></span>
         </div>
-    </div>
-
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <script src="script.js"></script>
+        <div class="detail-box">
+          <i class="fas fa-wind"></i>
+          <span>Wind</span>
+          <span id="wind"></span>
+        </div>
+        <div class="detail-box">
+          <i class="fas fa-tachometer-alt"></i>
+          <span>Pressure</span>
+          <span id="pressure"></span>
+        </div>
+        <div class="detail-box">
+          <i class="fas fa-temperature-low"></i>
+          <span>Feels Like</span>
+          <span id="feels-like"></span>
+        </div>
+      </div>
+      <div class="forecast-container">
+        <div class="forecast">
+          <h2>5-Day Forecast</h2>
+          <div class="forecast-list"></div>
+        </div>
+        <div id="map"></div>
+      </div>
+    </main>
+  </div>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
